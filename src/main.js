@@ -14,9 +14,8 @@ Vue.config.productionTip = false;
 
 import HomeComponent from './components/HomeComponent.vue';
 import CreateComponent from './components/CreateComponent.vue';
-import EditComponent from './components/EditComponent.vue';
 import IndexComponent from './components/IndexComponent.vue';
-
+import EditComponent from './components/EditComponent.vue';
 
 const routes = [
   {
