@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 import HomeComponent from './components/HomeComponent.vue';
 import CreateComponent from './components/CreateComponent.vue';
@@ -25,24 +25,23 @@ const routes = [
     path: '/create',
     component: CreateComponent
   },
-
   {
-    name: 'edit',
-    path: '/edit',
-    component: EditComponent
-  },
-
-  {
-    name: 'post',
+    name: 'posts',
     path: '/posts',
     component: IndexComponent
   },
+
+  {
+    name: 'edit',
+    path: '/edit/:id',
+    component: EditComponent
+  }
 
 ];
 
 const router = new VueRouter({
   mode: 'history',
-  router: routes
+  routes: routes
 });
 
-new Vue(Vue.util.extend({router}),App).$mount('#app')
+new Vue(Vue.util.extend({ router }, App)).$mount('#app');
