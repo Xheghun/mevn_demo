@@ -30,7 +30,14 @@
               >Edit</router-link
             >
           </td>
-          <td><button class="btn btn-danger">Delete</button></td>
+          <td>
+            <button
+              @click.prevent="deletePost(post._id)"
+              class="btn btn-danger"
+            >
+              Delete
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -39,17 +46,28 @@
 
 <script>
 export default {
-    data() {
-        return {
-            posts: []
-        }
-    },
+  data() {
+    return {
+      posts: [],
+    };
+  },
 
-    created() {
-        let uri = 'http://localhost:4000/posts';
-        this.axios.get(uri).then(response => {
-            this.posts = response.data;
+  created() {
+    let uri = "http://localhost:4000/posts";
+    this.axios.get(uri).then((response) => {
+      this.posts = response.data;
+    });
+  },
+  methods: {
+    deletePost(id) {
+        console.log(id);
+      let uri = `http://localhost:4000/posts/delete/${id}`;
+      this.axios.delete(uri).then(() => {
+        this.posts = this.posts.filter(function (value) {
+            return value._id != id;
         });
-    }
+      });
+    },
+  },
 };
 </script>
