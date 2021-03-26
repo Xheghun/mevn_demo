@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 
 //Define collection and schema for Post 
-let Post = new Schema({
+let post = new Schema({
     title: {
         type: String
     },
